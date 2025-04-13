@@ -219,27 +219,28 @@ class Row extends React.Component {
 
 }
 
-class Results extends React.Component{
-  constructor(){
+class Results extends React.Component {
+  constructor() {
     super();
     this.state = {
       messages: [
         '3UP',
-        'FREE BEER',
+        'FREE BEER<br>' + new Date().toLocaleString(),
         '2UP',
         '1UP'
       ]
-    } 
+    };
   }
 
-  render(){
+  render() {
     var shown = this.props.shown ? 'shown' : '';
     var classList = 'results ' + shown;
-    return(
+    // Use dangerouslySetInnerHTML to allow HTML parsing for the message.
+    return (
       <div className={classList}>
-        {this.state.messages[this.props.prize]}
+        <div dangerouslySetInnerHTML={{ __html: this.state.messages[this.props.prize] }} />
       </div>
-    )
+    );
   }
 }
 
