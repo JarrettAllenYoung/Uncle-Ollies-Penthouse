@@ -40,14 +40,14 @@ const app = new Vue({
       this.password_invalid = false;
       this.password_entered = '';
       this.password_tries++;
-            
+      
       if (this.password_match) {
         this.logged_in = true;
       } else {
         this.$refs.start.value = 'Try Again';
         if (this.password_tries === 2) this.$refs.start.value = 'Try "pacman"';
       }
-            
+      
       setTimeout(() => this.$refs.password.focus(), 100);
     },
     
@@ -62,8 +62,8 @@ const app = new Vue({
       this.password_tries = 0;
       this.password_match = false;
       this.logged_in = false;
-    }
-
+    },
+    
     goToNewPage() {
       // Redirect the user to game/game.html
       window.location.href = 'game/game.html';
