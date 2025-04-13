@@ -94,24 +94,14 @@
         }
 
         determinePrize() {
-          var rows = this.state.rows;
-          var endValues = rows.map(function (row) {
-            return row.endValue;
-          });
-
-          var prize = '';
-          // Check every row's value against the first row's value.
-          endValues.forEach(function (value, index) {
-            if (endValues[index] !== endValues[0]) {
-              prize = 3; // code for 'No Prize'
-            } else {
-              prize = endValues[0];
-            }
-          });
-
-          console.log(prize);
-          this.setState({ prize: prize });
+            const rows = this.state.rows;
+            const endValues = rows.map(row => row.endValue);
+            const allMatch = endValues.every(val => val === endValues[0]);
+            const finalPrize = allMatch ? endValues[0] : 3; // 3 means 'FREE BEER'
+            console.log(finalPrize);
+            this.setState({ prize: finalPrize });
         }
+
 
         resetGame() {
           // Generate new key for each row. This forces re-render and resets timers.
