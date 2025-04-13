@@ -14,7 +14,7 @@ body {
   background: #0f0a1e;
   font-family: "Kameron", serif;
   min-height: 100vh;
-  padding: 20px;
+  padding: 32px 16px;
 }
 
 .tv__screen {
@@ -89,7 +89,7 @@ a.button:hover {
 a.cancel {
   border-color: grey;
   color: grey;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 @media screen and (max-width: 767px) {
