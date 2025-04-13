@@ -93,7 +93,7 @@ p {
 }
 	
 span#year { 
-	animation: blinker 2s linear infinite;
+	animation: blink 1s infinite;
 }
 
 ul {
