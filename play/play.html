@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Uncle Ollie's Penthouse: Login</title>
   <!-- Include the Vue.js library -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -12,8 +13,8 @@
   <div id="app" v-cloak>
     <transition name="fade" mode="out-in" appear>
       <form @submit.prevent="checkPassword" v-if="!logged_in">
-        <label for="1up">1up</label>
-        <input ref="name" id="1up" type="text">
+        <label for="1up">Player</label>
+        <input ref="name" id="1up" type="text" v-model="playerName">
         
         <label for="password">Password</label>
         <div class="scene-wrapper">
@@ -52,12 +53,12 @@
       </form>
       
       <div class="logged-in" v-else>
-        <p>You are now logged in.</p>
+        <p>Welcome, {{ playerName }}</p>
         <input
           @click="goToNewPage"
           ref="start"
           type="button"
-          value="Play on!">
+          value="Game on!">
       </div>
     </transition>
   </div>

@@ -5,6 +5,7 @@ const app = new Vue({
     animate_ghost: false,
     animate_pacman: false,
     logged_in: false,
+    playerName: '', // New property to store the player's name
     password_entered: '',
     password_invalid: false,
     password_match: false,
@@ -58,6 +59,7 @@ const app = new Vue({
     },
     
     startOver() {
+      // This method is kept for potential reuse, but with the new redirect method the user will be navigated away
       this.password_entered = '';
       this.password_tries = 0;
       this.password_match = false;
@@ -65,7 +67,7 @@ const app = new Vue({
     },
     
     goToNewPage() {
-      // Redirect the user to game/game.html
+      // Redirect the user to the game page
       window.location.href = 'game/game.html';
     }
   },

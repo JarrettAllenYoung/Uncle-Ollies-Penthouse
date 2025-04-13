@@ -53,7 +53,7 @@ form {
 
 label {
   display: block;
-  font-size: 24px;
+  font-size: 44px;
   line-height: 1.6;
   margin-bottom: 12px;
 }
@@ -63,7 +63,7 @@ input {
   padding: 20px 0;
   width: 100%;
   font-family: "Press Start 2p", monospace;
-  font-size: 28px;
+  font-size: 44px;
   text-transform: uppercase;
   color: var(--pellet-color);
   background-color: transparent;
