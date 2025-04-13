@@ -98,6 +98,10 @@ a.cancel {
     .tv__screen__h4 {
         font-size: 0.8em;
     }
+    input[type=submit],
+a.button {
+    max-width: 70vw;
+}
 }
 
 @keyframes blinker {
