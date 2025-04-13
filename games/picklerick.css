@@ -25,7 +25,7 @@ body {
     top: $menuHeight;
     opacity: 0;
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.30);
+    background-color: rgba(0, 0, 0, 0.10);
     margin: auto;
 
     #mazeCanvas {
