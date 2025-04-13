@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="play.css">
 </head>
 <body>
+    <div class="backButton_wrap">
+        <a href="index.html">Back</a>
+    </div>
   <div id="app" v-cloak>
     <transition name="fade" mode="out-in" appear>
       <form @submit.prevent="checkPassword" v-if="!logged_in">
