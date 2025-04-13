@@ -63,6 +63,11 @@ const app = new Vue({
       this.password_match = false;
       this.logged_in = false;
     }
+
+    goToNewPage() {
+      // Redirect the user to game/game.html
+      window.location.href = 'game/game.html';
+    }
   },
   
   watch: {

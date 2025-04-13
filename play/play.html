@@ -53,12 +53,10 @@
       
       <div class="logged-in" v-else>
         <p>You are now logged in.</p>
-        <p>Game over!</p>
         <input
-          @click="startOver"
-          ref="start"
-          type="button"
-          value="Login Again!">
+            @click="goToNewPage"
+            type="button"
+            value="Play Game">
       </div>
     </transition>
   </div>
