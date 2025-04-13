@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quiz Template</title>
+</head>
+<body>
+  <!-- Quiz template markup -->
+
+  <!-- Options -->
+  <!-- Variables:
+       question = 'In what popular video game would you find this?'
+       instruction = 'Click on an answer or use the number keys'
+       hint = 'Need a hint?'
+  -->
+
+  <!-- SVG squiggles taken from https://codepen.io/lbebber/pen/KwGEQv?q=squiggly&limit=all&type=type-pens -->
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="squiggly-0">
+        <feturbulence id="turbulence" basefrequency="0.06" numoctaves="3" result="noise" seed="0"></feturbulence>
+        <fedisplacementmap id="displacement" in="SourceGraphic" in2="noise" scale="6"></fedisplacementmap>
+      </filter>
+      <filter id="squiggly-1">
+        <feturbulence id="turbulence" basefrequency="0.06" numoctaves="3" result="noise" seed="1"></feturbulence>
+        <fedisplacementmap in="SourceGraphic" in2="noise" scale="8"></fedisplacementmap>
+      </filter>
+      <filter id="squiggly-2">
+        <feturbulence id="turbulence" basefrequency="0.06" numoctaves="3" result="noise" seed="2"></feturbulence>
+        <fedisplacementmap in="SourceGraphic" in2="noise" scale="6"></fedisplacementmap>
+      </filter>
+      <filter id="squiggly-3">
+        <feturbulence id="turbulence" basefrequency="0.06" numoctaves="3" result="noise" seed="3"></feturbulence>
+        <fedisplacementmap in="SourceGraphic" in2="noise" scale="8"></fedisplacementmap>
+      </filter>
+      <filter id="squiggly-4">
+        <feturbulence id="turbulence" basefrequency="0.06" numoctaves="3" result="noise" seed="4"></feturbulence>
+        <fedisplacementmap in="SourceGraphic" in2="noise" scale="6"></fedisplacementmap>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Grain and vignette -->
+  <div class="overlay"></div>
+
+  <!-- Main markup -->
+  <div class="options">
+    <div class="options_sf">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/sfIcon2.png" alt="">
+    </div>
+    <div class="options_bg">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bgIcon2.png" alt="">
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main_inner">
+      <div class="main_inner__loading">
+        <div class="bg">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mars_sunburst.png" alt="">
+        </div>
+        <div class="loader">
+          <div class="text">
+            <span>U</span>
+            <span>n</span>
+            <span>c</span>
+            <span>l</span>
+            <span>e</span>
+            <div class="s">
+              <span>O</span>
+              <span>l</span>
+              <span>l</span>
+              <span>i</span>
+              <span>e</span>
+              <span>'</span>
+              <span>s</span>
+              <span>&nbsp;</span>
+              <span>q</span>
+              <span>u</span>
+              <span>i</span>
+              <span>z</span>
+            </div>
+          </div>
+          <p>
+            <button>Click anywhere to play</button>
+          </p>
+        </div>
+        <div class="main_inner__modalOverlay"></div>
+        <div class="main_inner__modal"></div>
+        <div class="main_inner__modalContent">
+          <h1>Quiz complete!</h1>
+          <p class="score">You got 7 out of 8 correct!</p>
+          <p>Don't forget to follow the talented bunch that contributed to this pen. They are:</p>
+          <a href="https://www.codepen.io/jotavejv" target="_blank">João Santos</a>
+          <a href="https://www.codepen.io/kathykato" target="_blank">Katherine Kato</a>
+          <a href="https://www.codepen.io/KristopherVanSant" target="_blank">Kristopher Van Sant</a>
+          <a href="https://www.codepen.io/jnwright" target="_blank">Jasmine Wright</a>
+          <a href="https://www.codepen.io/miffili" target="_blank">Klara Miffili</a>
+          <button class="share">Tweet your score</button>
+        </div>
+        <!-- Pass the pen logo -->
+        <div class="main_inner__logo">
+          <a href="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/vgqlogo.svg" alt="">
+          </a>
+        </div>
+        <!-- Question -->
+        <div class="main_inner__title">
+          <h1>In what popular video game would you find this?</h1>
+          <p>Click on an answer or use the number keys</p>
+          <a>Need a hint?</a>
+          <div class="hint"></div>
+        </div>
+        <!-- Scene circle backdrop -->
+        <div class="main_inner__circle"></div>
+        <!-- Scene right or wrong feedback -->
+        <div class="main_inner__feedback"></div>
+        <!-- Scenes container -->
+        <div class="main_inner__scenes">
+          <!-- ------------------------------------------------------------------------------------------
+               Paste or write your scene markup to a new .scene parent div after other scenes.
+               Use this nifty convertor if you write in plain html https://html2haml.herokuapp.com/
+               Scene class must match array name, Message Jamie in slack if you get stuck.
+               Scene object must be no bigger than 200px wide x 275px high
+               ------------------------------------------------------------------------------------------ -->
+
+          <!-- Scene -->
+          <div class="scene akuaku">
+            <div class="container">
+              <div class="feather"></div>
+              <div class="feather"></div>
+              <div class="feather"></div>
+              <div class="feather"></div>
+              <div class="body"></div>
+              <div class="eyebrows"></div>
+              <div class="eyebrows"></div>
+              <div class="eye"></div>
+              <div class="eye"></div>
+              <div class="nose"></div>
+              <div class="lip"></div>
+              <div class="lip"></div>
+              <div class="beard"></div>
+              <div class="beard"></div>
+            </div>
+          </div>
+          <!-- Aku Aku scene -->
+          <div class="scene kirby">
+            <div id="container">
+              <div class="kirby">
+                <div class="body">
+                  <div class="face">
+                    <div class="eyes">
+                      <div class="eye"></div>
+                      <div class="eye"></div>
+                    </div>
+                    <div class="mouth"></div>
+                    <div class="cheeks">
+                      <div class="cheek"></div>
+                      <div class="cheek"></div>
+                    </div>
+                  </div>
+                  <div class="arms">
+                    <div class="arm"></div>
+                    <div class="arm"></div>
+                  </div>
+                  <div class="feet">
+                    <div class="foot"></div>
+                    <div class="foot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Your scene -->
+          <div class="scene hexipal">
+            <div id="hexipal">
+              <div class="hexagon1"></div>
+              <div class="hexagon2"></div>
+              <div class="hexagon3"></div>
+              <div class="hexagon4"></div>
+              <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+              </div>
+              <div class="smile">U</div>
+              <div class="left-arm"></div>
+              <div class="left-hands">E</div>
+              <div class="right-arm"></div>
+              <div class="right-hands">E</div>
+              <div class="left-leg"></div>
+              <div class="right-leg"></div>
+            </div>
+          </div>
+          <!-- Your scene -->
+          <div class="scene moogle">
+            <div class="container">
+              <div class="ball"></div>
+              <div class="head">
+                <div class="nose"></div>
+                <div class="cheeks"></div>
+                <div class="eyes"></div>
+              </div>
+              <div class="body"></div>
+              <div class="feet"></div>
+              <div class="ears"></div>
+              <div class="inside"></div>
+              <div class="wings"></div>
+              <div class="wings2"></div>
+            </div>
+          </div>
+          <div class="scene mario">
+            <div class="container">
+              <div class="hat">
+                <div class="main"></div>
+                <div class="label">
+                  <p>M</p>
+                </div>
+                <div class="screen"></div>
+              </div>
+              <div class="ears">
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+              </div>
+              <div class="head">
+                <div class="hair">
+                  <div class="hair-back left"></div>
+                  <div class="hair-back right"></div>
+                </div>
+                <div class="face"></div>
+                <div class="mustache">
+                  <div class="detail farleft"></div>
+                  <div class="detail left"></div>
+                  <div class="detail right"></div>
+                  <div class="detail farright"></div>
+                  <div class="main"></div>
+                </div>
+                <div class="eyes">
+                  <div class="eye left"></div>
+                  <div class="eye right"></div>
+                </div>
+                <div class="nose"></div>
+              </div>
+              <div class="brows">
+                <div class="brow left"></div>
+                <div class="brow right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main_inner__info">
+          <p>CSS illustration by</p>
+          <span></span>
+          <a class="codepen" href="#" target="_blank">
+            <i class="fa fa-codepen"></i>
+          </a>
+          <a class="twitter" href="#" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </div>
+        <div class="main_inner__answers">
+          <div class="answer"></div>
+          <div class="answer"></div>
+          <div class="answer"></div>
+        </div>
+        <div class="main_inner__breadcrumbs"></div>
+      </div>
+    </div>
+  </div>
+  <canvas class="grain"></canvas>
+</body>
+</html>
