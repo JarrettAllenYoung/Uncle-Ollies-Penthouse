@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Kameron:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e6e6d8;
+  font-family: "Kameron", serif;
+}
+
+.tv {
+  width: 900px;
+  height: 800px;
+  background: #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 1px;
+}
+
+.tv__screen {
+  width: 850px;
+  height: 650px;
+  border: 8px solid #000;
+  border-radius: 8px;
+  background: #0f0a1e;
+  color: white;
+  box-shadow: 0px 0px 1px 12px #888;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Press Start 2P", cursive;
+}
+
+.tv__screen__h1 {
+  --stroke-orange: rgb(242 160 77);
+  --stroke-dark-orange: rgb(196 90 64);
+  --stroke-white: white;
+  --stroke-width: 5px;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 3em;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: rgb(251 227 102);
+  text-shadow: var(--stroke-width) var(--stroke-width) 0 var(--stroke-orange),
+    calc(var(--stroke-width) * 2) calc(var(--stroke-width) * 2) 0 var(--stroke-dark-orange),
+    0 0 0 black, 0 calc(var(--stroke-width) * -1) 0 var(--stroke-white);
+}
+
+.tv__screen__h4 {
+  animation: blinker 2s linear infinite;
+}
+
+.tv__details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tv__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tv__brand {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.tv button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #999;
+}
+
+.tv__audio {
+  height: 120px;
+  width: 220px;
+  position: relative;
+  top: 20px;
+  border-radius: 2px;
+  background-color: #555;
+  background-image: linear-gradient(45deg, #666 25%, transparent 25% 75%, #666 75%), linear-gradient(-45deg, #666 25%, transparent 25% 75%, #666 75%);
+  background-size: 5px 5px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
