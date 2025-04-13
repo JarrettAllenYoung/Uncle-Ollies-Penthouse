@@ -92,7 +92,9 @@ p {
 	margin: 0; 
 }
 	
-span#year { animation: blink 1s infinite }
+span#year { 
+	animation: blinker 2s linear infinite;
+}
 
 ul {
 	list-style: none;
