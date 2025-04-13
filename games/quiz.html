@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Uncle Ollie's Quiz">
+  <title>Uncle Ollie's Quiz</title>
+  <!-- Link to your external CSS file -->
+  <link rel="stylesheet" href="quiz.css">
+  <script src="quiz.js"></script>
+</head>
+<body>
+  <main>
+    <section class="question-section"></section>
+    <section class="answers">
+      <div
+        class="answer-container"
+        ondrop="drop_handler(event);"
+        ondragover="dragover_handler(event);"
+      ></div>
+    </section>
+
+    <section
+      id="drag-answer-section"
+      ondrop="drop_handler(event);"
+      ondragstart="dragstart_handler(event);"
+      ondragover="dragover_handler(event);"
+    >
+      <span id="dragText"> Drag Answer in Box</span>
+    </section>
+    <div id="answer-response"></div>
+    <section class="submit-section">
+      <div id="submit" class="inactive-btn">Submit Answer</div>
+    </section>
+    <div id="question-keeper"></div>
+  </main>
+
+  <script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>
