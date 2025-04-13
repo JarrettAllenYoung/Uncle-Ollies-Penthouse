@@ -478,7 +478,8 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
             break;
         }
       },
-      threshold: 0
+      threshold: 0,
+      preventDefaultEvents: true // This locks out native scrolling.
     });
   };
 

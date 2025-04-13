@@ -125,7 +125,8 @@ select {
         right: 0;
         width: 100%;
         height: auto;
-           
+        overflow: hidden;
+        touch-action: none;
     }
 }
 
