@@ -6,26 +6,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #e6e6d8;
+  background: #0f0a1e;
   font-family: "Kameron", serif;
 }
-/*
+
 .tv__screen {
-  width: 80vw;
-  height: 80vh;
-  border: 8px solid #000;
-  border-radius: 8px;
-  background: #0f0a1e;
-  color: white;
-  box-shadow: 0px 0px 1px 12px #888;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: "Press Start 2P", cursive;
 }
-*/
+
 .tv__screen__h1 {
   --stroke-orange: rgb(242 160 77);
   --stroke-dark-orange: rgb(196 90 64);
@@ -45,6 +33,8 @@ body {
 
 .tv__screen__h4 {
   animation: blinker 2s linear infinite;
+  text-align: center;
+  color: #fff;
 }
 
 .submit_wrap {
@@ -69,14 +59,14 @@ a.button {
 	cursor: hand;
 	display: inline-block;
 	font-family: 'VT323', Courier;
-	font-size: 1em;
+	font-size: 1.3em;
 	padding: 10px 100px;
 	position: relative;
 	text-decoration: none;
-	text-transform: uppercase;
+	text-transform: Normal;
 	z-index: 10;
-    transition: all 200ms;
-    text-align: center;
+  transition: all 200ms;
+  text-align: center;
 }
 
 input[type=submit]:hover,
@@ -88,7 +78,8 @@ a.button:hover {
 }
 
 a.cancel {
-    border-color: grey;
+  border-color: grey;
+  color: grey;
 }
 
 @media screen and (max-width: 767px) {
