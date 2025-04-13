@@ -12,8 +12,8 @@ body {
 }
 
 .tv__screen {
-  width: 850px;
-  height: 650px;
+  width: 80vw;
+  height: 80vh;
   border: 8px solid #000;
   border-radius: 8px;
   background: #0f0a1e;
@@ -47,40 +47,55 @@ body {
   animation: blinker 2s linear infinite;
 }
 
-.tv__details {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+.submit_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.tv__info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+input[type=text]:focus,
+textarea:focus,
+input[type=submit]:focus,
+a.button:focus {
+	outline: 0;
 }
 
-.tv__brand {
-  font-size: 24px;
-  margin-top: 20px;
+input[type=submit],
+a.button {
+	background: transparent;
+	border: 1px solid #FEBF00;
+	clear: both;
+	color: #FEBF00;
+	cursor: hand;
+	display: inline-block;
+	font-family: 'VT323', Courier;
+	font-size: 1em;
+	margin-bottom: 20px;
+	opacity: 0.25;
+	padding: 10px 100px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	z-index: 10;
+    transition: all 200ms;
+    text-align: center;
 }
 
-.tv button {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #999;
+input[type=submit]:hover,
+a.button:hover {
+    background: red;
+    border-color: red
+	color: #fff;
+	opacity: 0.8;
 }
 
-.tv__audio {
-  height: 120px;
-  width: 220px;
-  position: relative;
-  top: 20px;
-  border-radius: 2px;
-  background-color: #555;
-  background-image: linear-gradient(45deg, #666 25%, transparent 25% 75%, #666 75%), linear-gradient(-45deg, #666 25%, transparent 25% 75%, #666 75%);
-  background-size: 5px 5px;
+@media screen and (max-width: 767px) {
+    .tv__screen__h1 {
+        font-size: 1.6em;
+    }
+    .tv__screen__h4 {
+        font-size: 0.8em;
+    }
 }
 
 @keyframes blinker {
