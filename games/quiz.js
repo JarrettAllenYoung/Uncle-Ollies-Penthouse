@@ -1,4 +1,4 @@
-// Object holding all questins and answers to display dynamically to page
+// Object holding all questions and answers to display dynamically on the page
 let answerObj = [
   {
     question: "Which is the largest?",
@@ -31,13 +31,13 @@ let answerObj = [
     correctAnswer: "13",
   },
 ];
-// keep track of users correct and incorrect answers
+// Keep track of user's correct and incorrect answers
 let score = [];
-//keep track of question user is on
+// Keep track of question user is on
 let count = 0;
 let correct = 0;
 
-//grab dom elements
+// Grab DOM elements
 let answerSection = document.getElementById("drag-answer-section");
 let dragTextId = document.getElementById("dragText");
 let questionSection = document.querySelector(".question-section");
@@ -45,8 +45,8 @@ let answersContain = document.querySelector(".answer-container");
 let submit = document.getElementById("submit");
 let answer = document.getElementById("answer-response");
 
-var isMobile = false; //initiate as false
-// device detection
+var isMobile = false; // initiate as false
+// Device detection
 if (
   /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(
     navigator.userAgent
@@ -58,8 +58,7 @@ if (
   isMobile = true;
   console.log("mobile quiz");
   mobileVersion();
-
-  // if it is true then add click event for the boxes. When clicked, have that box moved into the answer box. when box in the answer box is clicked then move it to the list of answers container .
+  // If mobile, add click events for the boxes.
 }
 
 // drag content functions ---------
@@ -71,10 +70,9 @@ function dragstart_handler(e) {
 function dragover_handler(e) {
   e.preventDefault();
 }
-//   end of drag content function -----
+// end of drag content functions -----
 
-// when content is dropped into containers run this ----
-
+// When content is dropped into containers, run this ----
 function drop_handler(e) {
   e.preventDefault();
   let dragTextBox;
@@ -84,15 +82,15 @@ function drop_handler(e) {
     dragText = dragTextBox.id === "dragText";
   }
 
-  // check the section an item is being dropped into. If it is an answer section then regulate how many items can be placed in it ---
+  // Check the section an item is being dropped into.
+  // If it is an answer section, regulate how many items can be placed in it.
   if (
     e.srcElement.className === "answer-container" ||
     (e.srcElement.id === "drag-answer-section" &&
       answerSection.children.length < 2)
   ) {
     answerBoxTextCheck(dragText, dragTextBox);
-
-    // get data from the dragged element
+    // Get data from the dragged element
     let draggedData = e.dataTransfer.getData("text");
     e.target.appendChild(document.getElementById(draggedData));
   }
@@ -100,10 +98,8 @@ function drop_handler(e) {
 
 function start() {
   let x = document.querySelector(".answer-container");
-
   let pTag = document.createElement("p");
   pTag.textContent = answerObj[count].question;
-
   questionSection.appendChild(pTag);
   updateDomScore();
   for (let i = 0; i < answerObj[count].answerOptions.length; i++) {
@@ -119,7 +115,8 @@ function start() {
   }
 }
 start();
-// run functions to make sure the question has been submitted correctly and then check answer to see if it is correct
+
+// Run functions to ensure the question has been submitted and check the answer
 function runSubmissionCheck() {
   if (checkForInput()) {
     checkAnswer();
@@ -138,7 +135,7 @@ function checkForInput() {
   }
 }
 
-// gets index of real answer located in an array passed through data attribute and compares it with the value of the dragged box
+// Get the index of the real answer located in an array passed through a data attribute and compare it with the value of the dragged box
 function checkAnswer() {
   let draggedAnswerData = answerSection.children[1].dataset;
   let index = parseInt(draggedAnswerData.answerindex);
@@ -146,7 +143,7 @@ function checkAnswer() {
   console.log(answerSection);
   console.log(answerSection.children[1].textContent);
 
-  // compare the chosen option with the correct answer
+  // Compare the chosen option with the correct answer
   let result = draggedAnswerData.num == answerObj[count].correctAnswer;
 
   displayResult(result);
@@ -159,32 +156,45 @@ function checkAnswer() {
     answeredCorrectly: result,
   };
 
-  //push recorded answer to the score array
+  // Push the recorded answer to the score array
   score.push(record);
   count++;
 
   setTimeout(function () {
-    // get html ready for next questions by clearing dom sections
-
+    // Get HTML ready for next question by clearing DOM sections
     clearSections(answerArea);
 
-    // check if there are any questions left. If not then end quiz
+    // Check if there are any questions left. If not, end the quiz.
     answerBoxTextCheck();
     if (count < answerObj.length) {
       start();
     } else {
       quizResults();
-
       answerArea.innerHTML = "";
     }
   }, 1500);
 }
 
-//displays the results of the test at the end
+// Displays the results of the test at the end
 function quizResults() {
   let main = document.querySelector("main");
   answerSection.setAttribute("class", "inactive-btn");
   let correctAnswerObj = checkCorrectAnswers();
+
+  let finalMessage = "";
+  // If user got all questions correct
+  if (correctAnswerObj.correct === answerObj.length) {
+    finalMessage =
+      "Amazing! You've answered all 6 questions correctly!<br>" +
+      "<a href='https://uncleolliespenthouse.netlify.app/games/shuffle.html' style='color: yellow; font-size: 24px; line-height: 2.6em; text-decoration: none;'>Click here</a> to claim your prize";
+  } else {
+    finalMessage =
+      "You got " +
+      correctAnswerObj.correct +
+      " out of " +
+      answerObj.length +
+      " correct.";
+  }
 
   let div = document.createElement("div");
   div.setAttribute("class", "results-box");
@@ -192,40 +202,26 @@ function quizResults() {
   let h1Tag = document.createElement("h1");
   h1Tag.textContent = "Quiz Results";
 
-  let ul = document.createElement("ul");
-  let licorrect = document.createElement("li");
-  let liincorrect = document.createElement("li");
-  let spanCorrect = document.createElement("span");
-  let spanIncorrect = document.createElement("span");
-  let percentP = document.createElement("p");
-  let tryAgainBtn = document.createElement("button");
-  let quizDetails = document.createElement("button");
+  let pTag = document.createElement("p");
+  pTag.innerHTML = finalMessage; // Use innerHTML so that the <br> and <a> are rendered as HTML
 
-  quizDetails.textContent = "Show Quiz Details";
-  quizDetails.setAttribute("id", "quiz-detail-btn");
+  div.appendChild(h1Tag);
+  div.appendChild(pTag);
+  main.appendChild(div);
+
+  let tryAgainBtn = document.createElement("button");
   tryAgainBtn.textContent = "Try Again";
   tryAgainBtn.setAttribute("id", "try-again-btn");
 
-  percentP.textContent =
-    scorePercent(correctAnswerObj.correct, correctAnswerObj.incorrect) + " %";
-  licorrect.textContent = "Correct: ";
-  liincorrect.textContent = "Incorrect: ";
-  spanCorrect.textContent = correctAnswerObj.correct;
-  spanIncorrect.textContent = correctAnswerObj.incorrect;
+  let quizDetails = document.createElement("button");
+  quizDetails.textContent = "Show Quiz Details";
+  quizDetails.setAttribute("id", "quiz-detail-btn");
 
-  licorrect.appendChild(spanCorrect);
-  liincorrect.appendChild(spanIncorrect);
-  ul.appendChild(licorrect);
-  ul.appendChild(liincorrect);
-  div.appendChild(h1Tag);
-  div.appendChild(ul);
-  div.appendChild(percentP);
-  main.appendChild(div);
   main.appendChild(tryAgainBtn);
   main.appendChild(quizDetails);
 
-  let xxx = quizDetailResults();
-  main.appendChild(xxx);
+  let detailsList = quizDetailResults();
+  main.appendChild(detailsList);
 }
 
 function scorePercent(correct, incorrect, total) {
@@ -234,9 +230,7 @@ function scorePercent(correct, incorrect, total) {
     return (percent * 100).toFixed();
   } else {
     let totalQuestions = correct + incorrect;
-
     let percent = correct / totalQuestions;
-
     return (percent * 100).toFixed();
   }
 }
@@ -251,13 +245,9 @@ function checkCorrectAnswers() {
       incorrect++;
     }
   }
-
-  let answers = {
-    correct: correct,
-    incorrect: incorrect,
-  };
-  return answers;
+  return { correct: correct, incorrect: incorrect };
 }
+
 function displayResult(result) {
   if (result === true) {
     correct++;
@@ -270,8 +260,8 @@ function displayResult(result) {
 }
 
 function updateDomScore() {
-  let score = document.getElementById("question-keeper");
-  score.textContent = count + 1 + " / " + answerObj.length;
+  let scoreElem = document.getElementById("question-keeper");
+  scoreElem.textContent = (count + 1) + " / " + answerObj.length;
 }
 
 function clearSections(answerArea) {
@@ -281,26 +271,25 @@ function clearSections(answerArea) {
   answerArea.removeChild(answerArea.lastChild);
 }
 
-//checks if answer is in answer box. If it is not they it will display text stating 'Drag Answer Here'
+// Checks if answer is in answer box. If not, it displays text stating 'Drag Answer Here'
 function answerBoxTextCheck(dragText, dragTextBox) {
   if (dragText) {
     dragTextBox.textContent = "";
     submit.setAttribute("class", "active-btn");
   } else {
-    dragTextId.textContent = "Drag Answer in Box";
+    dragTextId.textContent = "Click or drag answer into box";
     submit.setAttribute("class", "inactive-btn");
   }
 }
 
-//onclick expand the ul
+// Onclick expand the ul
 function expandElement() {
   let ulresults = document.getElementById("ul-results");
-  bodyHeight = ulresults.scrollHeight;
+  let bodyHeight = ulresults.scrollHeight;
   ulresults.setAttribute("style", "height:" + bodyHeight + "px;");
 }
 
-//display detailed quiz results
-
+// Display detailed quiz results
 function quizDetailResults() {
   console.log(score);
   let ul = document.createElement("ul");
@@ -309,36 +298,30 @@ function quizDetailResults() {
     console.log(results.index);
     let li = document.createElement("li");
     let listContain = document.createElement("div");
-    listContain.setAttribute("class", "num-result");
-
     listContain.setAttribute("class", "results-list");
-    let correct = document.createElement("i");
-
-    correct.setAttribute("class", "fa fa-check-circle");
-    let incorrect = document.createElement("i");
-
-    incorrect.setAttribute("class", "fa fa-times-circle");
-
+    let correctIcon = document.createElement("i");
+    correctIcon.setAttribute("class", "fa fa-check-circle");
+    let incorrectIcon = document.createElement("i");
+    incorrectIcon.setAttribute("class", "fa fa-times-circle");
     let num = document.createElement("div");
     num.setAttribute("style", "padding:0 10px;");
     let qaContain = document.createElement("div");
     qaContain.setAttribute("class", "qa");
     let question = document.createElement("p");
     question.setAttribute("class", "m-top-zero");
-    let answer = document.createElement("p");
+    let answerElem = document.createElement("p");
 
     if (results.answeredCorrectly) {
-      listContain.appendChild(correct);
+      listContain.appendChild(correctIcon);
     } else {
-      listContain.appendChild(incorrect);
+      listContain.appendChild(incorrectIcon);
     }
     num.textContent = "#" + (results.index + 1);
     question.textContent = "Question: " + answerObj[results.index].question;
-    answer.textContent = "Your Answer: " + score[results.index].userAnswer;
-    // listContain.appendChild(img);
+    answerElem.textContent = "Your Answer: " + score[results.index].userAnswer;
     listContain.appendChild(num);
     qaContain.appendChild(question);
-    qaContain.appendChild(answer);
+    qaContain.appendChild(answerElem);
     listContain.appendChild(qaContain);
     li.appendChild(listContain);
     ul.appendChild(li);
@@ -360,13 +343,12 @@ submit.addEventListener("click", function (e) {
   runSubmissionCheck();
 });
 
-//mobile javascript
-
+// Mobile javascript
 function mobileVersion() {
   console.log("mobile");
   let a = document.querySelector(".answers");
 
-  //on mobile when clicking an answer
+  // On mobile, when clicking an answer:
   a.addEventListener("click", function (e) {
     e.preventDefault();
     if (e.target.matches(".answer-box")) {
@@ -374,11 +356,9 @@ function mobileVersion() {
     }
   });
 
-  //on mobile when clicking an answer in the answer box. Have the answer in the box moved back to the answer container
-
+  // On mobile, when clicking an answer in the answer box, move it back to the answer container
   answerSection.addEventListener("click", function (e) {
     e.preventDefault();
-
     if (e.target.matches(".answer-box")) {
       answersContain.append(e.target);
     }
