@@ -1,7 +1,7 @@
 // Object holding all questins and answers to display dynamically to page
 let answerObj = [
   {
-    question: "Which of the ",
+    question: "Which is the largest?",
     answerOptions: [1000, 50, 20, 22],
     correctAnswer: 1000,
   },
