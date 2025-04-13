@@ -104,6 +104,10 @@ p {
 	line-height: 100%;
 	margin: 0; 
 }
+
+svg#logo-v {
+	margin-bottom: 48px;
+}
 	
 span#year { 
 	animation: blinker 1.5s linear infinite;
