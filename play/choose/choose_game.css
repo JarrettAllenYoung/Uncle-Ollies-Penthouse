@@ -10,7 +10,7 @@ body {
   background: #e6e6d8;
   font-family: "Kameron", serif;
 }
-
+/*
 .tv__screen {
   width: 80vw;
   height: 80vh;
@@ -25,7 +25,7 @@ body {
   align-items: center;
   font-family: "Press Start 2P", cursive;
 }
-
+*/
 .tv__screen__h1 {
   --stroke-orange: rgb(242 160 77);
   --stroke-dark-orange: rgb(196 90 64);
