@@ -349,4 +349,7 @@ a.button:hover {
   a.button {
     width: 100%;
   }
+  .address {
+	margin-top: 16px;
+}
 }
