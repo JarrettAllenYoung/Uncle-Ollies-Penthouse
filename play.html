@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Welcome to Uncle Ollie's Penthouse - a place where professionals meet, drink, and have fun.">
+  <title>Uncle Ollie's Penthouse</title>
+  <!-- Link to your external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  #app
+  transition(name="fade" mode="out-in" appear v-cloak)
+    form(@submit="checkPassword" v-if="!logged_in")
+      label(for="1up") 1up
+      input(ref="name" id="1up" type="text")
+
+      label(for="password") Password
+      .scene-wrapper
+        input(
+          @keyup.enter="runPacman"
+          ref="password"
+          id="password"
+          type="password"
+          v-model="password_entered"
+          :class="{invalid : password_invalid}"
+          :disabled="disableInput()"
+        )
+
+        transition(:name="transitionPacman" v-on:after-enter="checkPassword")
+          .pac-wrapper(v-if="animate_pacman")
+            .pacman
+
+        transition(name="cover")
+          .input-cover(v-if="animate_pacman || animate_ghost")
+
+        transition(name="ghost" v-on:after-enter="resetAnimation")
+          .ghost-wrapper(v-if="animate_ghost")
+            .ghost(:class="{runaway : password_match}")
+
+      input(
+        @click="runPacman"
+        ref="start"
+        type="button"
+        value="Press Start"
+        :disabled="disableInput()"
+      )
+      
+    .logged-in(v-else)
+      p You are now logged in.
+      p Game over!
+      input(
+        @click="startOver"
+        ref="start"
+        type="button"
+        value="Login Again!"
+      )
+</body>
+</html>
