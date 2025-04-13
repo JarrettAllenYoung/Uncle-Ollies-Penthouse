@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="play.css">
 </head>
 <body>
-    <div class="backButton_wrap">
-        <a href="index.html">Back</a>
+    <div class="backButton_wrap" @click="goHome">
+        <p class="backButton">Back</p>
     </div>
   <div id="app" v-cloak>
     <transition name="fade" mode="out-in" appear>
@@ -56,6 +56,9 @@
       </form>
       
       <div class="logged-in" v-else>
+        <div class="backButton_wrap" @click="goHome">
+            <p class="backButton">Go back to home page</p>
+        </div>
         <p>Welcome, {{ playerName }}</p>
         <input
           @click="goToNewPage"
