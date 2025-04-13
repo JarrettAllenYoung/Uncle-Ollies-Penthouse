@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="backButton_wrap">
-        <a href="https://uncleolliespenthouse.netlify.app/" class="backButton">Back</a>
+        <a href="https://uncleolliespenthouse.netlify.app/" class="backButton">Go Back Home</a>
     </div>
   <div id="app" v-cloak>
     <transition name="fade" mode="out-in" appear>
@@ -56,9 +56,6 @@
       </form>
       
       <div class="logged-in" v-else>
-        <div class="backButton_wrap">
-            <a href="https://uncleolliespenthouse.netlify.app/" class="backButton">Back to Home Page</a>
-        </div>
         <p>Welcome, {{ playerName }}</p>
         <input
           @click="goToNewPage"
