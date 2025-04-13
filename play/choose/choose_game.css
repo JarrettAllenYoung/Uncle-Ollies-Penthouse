@@ -70,8 +70,6 @@ a.button {
 	display: inline-block;
 	font-family: 'VT323', Courier;
 	font-size: 1em;
-	margin-bottom: 20px;
-	opacity: 0.25;
 	padding: 10px 100px;
 	position: relative;
 	text-decoration: none;
@@ -87,6 +85,10 @@ a.button:hover {
     border-color: red
 	color: #fff;
 	opacity: 0.8;
+}
+
+a.cancel {
+    border-color: grey;
 }
 
 @media screen and (max-width: 767px) {
