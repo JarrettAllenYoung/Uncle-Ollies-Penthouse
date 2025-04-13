@@ -186,7 +186,7 @@ function quizResults() {
   if (correctAnswerObj.correct === answerObj.length) {
     finalMessage =
       "Amazing! You've answered all 6 questions correctly!<br>" +
-      "<a href='https://uncleolliespenthouse.netlify.app/games/shuffle.html' style='color: yellow; font-size: 24px; line-height: 2.6em; text-decoration: none;'>Click here</a> to claim your prize";
+      "<a href='https://uncleolliespenthouse.netlify.app/games/shuffle.html' style='color: red; font-size: 24px; line-height: 2.6em; text-decoration: none;'>Click here</a> to claim your prize";
   } else {
     finalMessage =
       "You got " +
