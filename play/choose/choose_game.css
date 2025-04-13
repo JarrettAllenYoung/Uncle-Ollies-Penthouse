@@ -67,8 +67,8 @@ a.button {
   align-items: center;
   justify-content: center;
   font-family: 'VT323', Courier;
-  font-size: 1.3em;
-  padding: 10px 100px;
+  font-size: 2em;
+  padding: 10px 30px;
   position: relative;
   text-decoration: none;
   text-transform: none;
@@ -99,9 +99,9 @@ a.cancel {
         font-size: 0.8em;
     }
     input[type=submit],
-a.button {
-    max-width: 70vw;
-}
+    a.button {
+        font-size: 1.6em;
+    }
 }
 
 @keyframes blinker {
