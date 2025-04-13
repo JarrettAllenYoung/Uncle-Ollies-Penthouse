@@ -265,7 +265,9 @@ a.button {
 	clear: both;
 	color: #FEBF00;
 	cursor: hand;
-	display: inline-block;
+	display: inline-flex;
+  	align-items: center;
+  	justify-content: center;
 	font-family: 'VT323', Courier;
 	font-size: 1em;
 	margin-bottom: 20px;
@@ -275,8 +277,8 @@ a.button {
 	text-decoration: none;
 	text-transform: uppercase;
 	z-index: 10;
-  transition: all 200ms;
-  text-align: center;
+  	transition: all 200ms;
+  	text-align: center;
 }
 
 input[type=submit]:hover,

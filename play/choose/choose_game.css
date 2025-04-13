@@ -56,32 +56,34 @@ a.button:focus {
 	outline: 0;
 }
 
-input[type=submit],
+input[type="submit"],
 a.button {
-	background: transparent;
-	border: 1px solid #FEBF00;
-	clear: both;
-	color: #FEBF00;
-	cursor: hand;
-	display: inline-block;
-	font-family: 'VT323', Courier;
-	font-size: 1.3em;
-	padding: 10px 100px;
-	position: relative;
-	text-decoration: none;
-	text-transform: Normal;
-	z-index: 10;
+  background: transparent;
+  border: 1px solid #FEBF00;
+  color: #FEBF00;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'VT323', Courier;
+  font-size: 1.3em;
+  padding: 10px 100px;
+  position: relative;
+  text-decoration: none;
+  text-transform: none;
+  z-index: 10;
   transition: all 200ms;
   text-align: center;
 }
 
-input[type=submit]:hover,
+input[type="submit"]:hover,
 a.button:hover {
-    background: red;
-    border-color: red
-	color: #fff;
-	opacity: 0.8;
+  background: red;
+  border-color: red;
+  color: #fff;
+  opacity: 0.8;
 }
+
 
 a.cancel {
   border-color: grey;
