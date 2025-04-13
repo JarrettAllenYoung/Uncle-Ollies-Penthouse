@@ -104,10 +104,6 @@ p {
 	line-height: 100%;
 	margin: 0; 
 }
-
-svg#logo-v {
-	margin-bottom: 48px;
-}
 	
 span#year { 
 	animation: blinker 1.5s linear infinite;
@@ -223,6 +219,7 @@ nav.site ul li {
 	height: auto;
 	margin: 0 auto;
 	width: 240px;
+	margin-bottom: 48px;
 }
 
 .copyright-text {
