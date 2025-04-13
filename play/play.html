@@ -1,45 +1,69 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <script src="//cdn.jsdelivr.net/npm/phaser@3.12/dist/phaser.js"></script>
-  <!-- Link to your external CSS file -->
-  <link rel="stylesheet" href="play.css">
-  <script src="play.js"></script>
+  <meta charset="UTF-8">
+  <title>Uncle Ollie's Penthouse: Login</title>
+  <!-- Include the Vue.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- Link to your compiled CSS file (we will provide the full CSS next) -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <div class="container">
-    <div class="social-links">
-      <div id="pacman-banner">Pacman</div>
-      <div class="social-buttons">
-        <a class="twitter-follow-button nav-link" href="https://instagram.com/uncleolliespenthouse" target="_blank" data-show-count="false">
-Follow @uncleolliespenthouse</a>
+  <div id="app" v-cloak>
+    <transition name="fade" mode="out-in" appear>
+      <form @submit.prevent="checkPassword" v-if="!logged_in">
+        <label for="1up">1up</label>
+        <input ref="name" id="1up" type="text">
+        
+        <label for="password">Password</label>
+        <div class="scene-wrapper">
+          <input
+            @keyup.enter="runPacman"
+            ref="password"
+            id="password"
+            type="password"
+            v-model="password_entered"
+            :class="{ invalid: password_invalid }"
+            :disabled="disableInput()">
+          
+          <transition :name="transitionPacman" @after-enter="checkPassword">
+            <div class="pac-wrapper" v-if="animate_pacman">
+              <div class="pacman"></div>
+            </div>
+          </transition>
+          
+          <transition name="cover">
+            <div class="input-cover" v-if="animate_pacman || animate_ghost"></div>
+          </transition>
+          
+          <transition name="ghost" @after-enter="resetAnimation">
+            <div class="ghost-wrapper" v-if="animate_ghost">
+              <div class="ghost" :class="{ runaway: password_match }"></div>
+            </div>
+          </transition>
+        </div>
+        
+        <input
+          @click="runPacman"
+          ref="start"
+          type="button"
+          value="Press Start"
+          :disabled="disableInput()">
+      </form>
+      
+      <div class="logged-in" v-else>
+        <p>You are now logged in.</p>
+        <p>Game over!</p>
+        <input
+          @click="startOver"
+          ref="start"
+          type="button"
+          value="Login Again!">
       </div>
-    </div>
+    </transition>
   </div>
-
-  <div class="container game-container">
-    <canvas id="mycanvas"></canvas>
-  </div>
-
-  <script>
-    window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      t._e = [];
-      t.ready = function(f) {
-        t._e.push(f);
-      };
-      return t;
-    }(document, "script", "twitter-wjs"));
-  </script>
+  
+  <!-- Link to your JavaScript file (we will provide the full JavaScript next) -->
+  <script src="script.js"></script>
 </body>
-
 </html>
