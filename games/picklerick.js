@@ -33,8 +33,16 @@ function changeBrightness(factor, sprite) {
 }
 
 function displayVictoryMess(moves) {
-  document.getElementById("moves").innerHTML = "You Moved " + moves + " Steps.";
-  toggleVisablity("Message-Container");  
+  var movesMessage;
+  // Check if the current difficulty is extreme (value "38")
+  if (difficulty === "38") {
+    movesMessage = "Amazing! You've conquered Extreme Difficulty in " + moves + " moves!<br>" +
+                   "<a href='https://yourprizelink.com'>Click here</a> to claim your prize";
+  } else {
+    movesMessage = "You Moved " + moves + " Steps.";
+  }
+  document.getElementById("moves").innerHTML = movesMessage;
+  toggleVisablity("Message-Container");
 }
 
 function toggleVisablity(id) {
