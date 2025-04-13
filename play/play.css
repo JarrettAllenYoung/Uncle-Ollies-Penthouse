@@ -53,7 +53,7 @@ form {
 
 label {
   display: block;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.6;
   margin-bottom: 12px;
 }
@@ -63,7 +63,7 @@ input {
   padding: 20px 0;
   width: 100%;
   font-family: "Press Start 2p", monospace;
-  font-size: 28px;
+  font-size: 24px;
   text-transform: uppercase;
   color: var(--pellet-color);
   background-color: transparent;
@@ -80,12 +80,12 @@ input[type="button"] {
   cursor: pointer;
   border: none;
   background-color: var(--button-color);
-  font-size: 28px;
+  font-size: 24px;
 }
 
 @media (min-width: 500px) {
   input[type="button"] {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 
