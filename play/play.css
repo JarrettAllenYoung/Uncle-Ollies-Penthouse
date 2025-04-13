@@ -38,7 +38,7 @@ body {
     margin-bottom: 80px;
 }
 
-.backButton p {
+a.backButton {
     color: red;
 }
 
