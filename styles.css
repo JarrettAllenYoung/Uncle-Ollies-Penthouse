@@ -21,6 +21,12 @@
   to{opacity: .0;}
 }
 
+@keyframes blinker {
+	50% {
+	  opacity: 0;
+	}
+  }
+
 @keyframes scan {
 	from { top: 0 }
 	to { top: 100% }
@@ -93,7 +99,7 @@ p {
 }
 	
 span#year { 
-	animation: blink 1s infinite;
+	animation: blinker 2s linear infinite;
 }
 
 ul {
