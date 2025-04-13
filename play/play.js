@@ -69,7 +69,7 @@ const app = new Vue({
     goToNewPage() {
       // Redirect the user to the game page
       window.location.href = 'game/game.html';
-    }
+    },
 
     goHome() {
       window.location.href = 'index.html';
