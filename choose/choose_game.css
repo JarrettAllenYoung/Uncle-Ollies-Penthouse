@@ -10,11 +10,11 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: #0f0a1e;
   font-family: "Kameron", serif;
   min-height: 100vh;
+  padding: 20px;
 }
 
 .tv__screen {
@@ -89,6 +89,7 @@ a.button:hover {
 a.cancel {
   border-color: grey;
   color: grey;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 767px) {

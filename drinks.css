@@ -69,12 +69,11 @@ body {
 	font-size: 64.5%;
 	font-size: 1.4em;
 	font-family: 'VT323', Courier;
-	height: 100vh;
+	min-height: 100vh;
 	margin: 0;
 	padding: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -83,6 +82,10 @@ h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 	text-transform: uppercase;
   text-align: center;
+}
+
+.fullBar {
+	margin-bottom: 20px;
 }
 
 ul {
