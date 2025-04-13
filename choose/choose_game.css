@@ -14,7 +14,7 @@ body {
   align-items: center;
   background: #0f0a1e;
   font-family: "Kameron", serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .tv__screen {
