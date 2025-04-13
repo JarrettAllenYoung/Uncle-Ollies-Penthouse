@@ -71,7 +71,7 @@ body {
 	font-family: 'VT323', Courier;
 	height: 100vh;
 	margin: 0;
-	padding: 16px;
+	padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
