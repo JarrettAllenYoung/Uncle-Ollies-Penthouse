@@ -90,7 +90,7 @@ p {
 	margin: 0; 
 }
 	
-span { animation: blink 1s infinite }
+span#year { animation: blink 1s infinite }
 
 ul {
 	list-style: none;
@@ -203,6 +203,11 @@ nav.site ul li {
 	margin: 0 auto;
 	width: 240px;
 }
+
+.copyright-text {
+	border-left: 1px solid #FEBF00;
+	margin-left: 12px;
+  }
 
 img.pip-hero {
 	display: block;
