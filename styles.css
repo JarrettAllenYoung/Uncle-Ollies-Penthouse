@@ -81,9 +81,16 @@ h1, h2, h3 h4, h5, h6 {
 	margin: 0;
 	text-transform: uppercase;
 }
+
 h4 b {
   color: white;
 }
+
+.address {
+	display: inline-block;
+	margin-bottom: 16px;
+}
+
 a {
 	color: white;	
 	text-decoration: none;	
