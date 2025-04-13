@@ -26,7 +26,7 @@ const app = new Vue({
       
       if (this.password_entered !== this.password_stored) {
         this.password_invalid = true;
-        this.$refs.start.value = 'Incorrect Password!';
+        this.$refs.start.value = 'Incorrect\nPassword!';
       } else {
         this.$refs.start.value = 'Logging in';
       }
