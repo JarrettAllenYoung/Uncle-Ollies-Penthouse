@@ -6,12 +6,12 @@ let answerObj = [
     correctAnswer: 1000,
   },
   {
-    question: "what is 200 / 2",
+    question: "what is 200 / 2?",
     answerOptions: ["400", "150", "100"],
     correctAnswer: "100",
   },
   {
-    question: "What is 1500 * 1500",
+    question: "What is 1500 * 1500?",
     answerOptions: ["2,250,000", "3000", "1,800,000"],
     correctAnswer: "2,250,000",
   },
@@ -21,12 +21,12 @@ let answerObj = [
     correctAnswer: "-1",
   },
   {
-    question: "Simplify: (4 - 5)-(13 - 18 + 2)",
+    question: "Simplify: (4 - 5) - (13 - 18 + 2)",
     answerOptions: ["-1", "-2", "1", "2"],
     correctAnswer: "2",
   },
   {
-    question: "Find the Value of 3+ 2 * (8 - 3)",
+    question: "Find the Value of 3 + 2 * (8 - 3)",
     answerOptions: ["25", "13", "17", "24"],
     correctAnswer: "13",
   },
