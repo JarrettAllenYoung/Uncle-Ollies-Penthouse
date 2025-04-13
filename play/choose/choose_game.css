@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Kameron:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
 body {
   display: flex;
   flex-direction: column;
@@ -8,6 +13,7 @@ body {
   align-items: center;
   background: #0f0a1e;
   font-family: "Kameron", serif;
+  height: 100vh;
 }
 
 .tv__screen {
