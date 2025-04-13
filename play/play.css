@@ -152,7 +152,7 @@ input.invalid {
 
 .pacman {
   right: 52px;
-  animation: waka 0.3s steps(5) infinite forwards;
+  animation: waka 0.3s steps(1) infinite forwards;
 }
 
 .pacman:before,
