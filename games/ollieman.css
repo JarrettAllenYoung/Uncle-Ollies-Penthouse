@@ -8,8 +8,7 @@ body {
   overflow: hidden;
   background-color: black;
 	margin: 0 auto;
-  font-size: 64.5%;
-	font-size: 1.4em;
+	font-size: 24px;
 	font-family: 'VT323', Courier;
 }
 
