@@ -1,20 +1,75 @@
-canvas {
-  position :absolute;
-  top : 0px;
-  left : 0px;
-}
-body {
-  margin : 0px;
+@import url(https://fonts.googleapis.com/css?family=VT323);
 
-}
-.all {
-  height: 100%;
+html,
+body {
+  margin: 0px;
+  padding: 0px;
   width: 100%;
-  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
-  font-size : 18px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: -moz-linear-gradient(top, #000 0%, #023 41%, #247 100%);
-  background: -webkit-linear-gradient(top, #000 0%,#023 41%,#247 100%);
-  background: linear-gradient(to bottom, #000 0%,#023 41%,#247 100%);
+  overflow: hidden;
+  background-color: black;
+	margin: 0 auto;
+	font-size: 24px;
+	font-family: 'VT323', Courier;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backButton {
+  margin-bottom: 40px;
+}
+
+ul {
+	list-style: none;
+  display: inline;
+}
+
+ul a {
+  transition: all 200ms;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+ul a:before,
+p a:before {
+	color: #FEBF00;
+  content: ' <-- ';
+}
+
+.social-links {
+  padding: 5px;
+  width: 560px;
+}
+
+#pacman-banner {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 21pt;
+  margin-right: 100px;
+  color: yellow;
+  float: left;
+}
+
+.social-buttons {
+  float: right;
+  position: relative;
+  top: 5px;
+}
+
+.game-container {
+  transform: scale(0.8) translateY(-20%);
 }

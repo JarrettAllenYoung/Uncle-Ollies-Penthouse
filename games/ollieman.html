@@ -10,8 +10,33 @@
 
 <body>
 
-  <div class="all" id="page">
-    <canvas id="canvas"  width="607" height="405" style="left: 488px;"></canvas>
+  <div class="container game-container">
+    <div>
+      <nav class="backButton">
+          <ul>
+            <li><a href="https://uncleolliespenthouse.netlify.app/choose/choose_game.html" title="back">Back</a></li>
+          </ul>
+        </nav>
+    </div>
+    <canvas id="mycanvas"></canvas>
   </div>
+
+  <script>
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+      return t;
+    }(document, "script", "twitter-wjs"));
+  </script>
+</body>
 
 </html>
