@@ -35,7 +35,7 @@ function changeBrightness(factor, sprite) {
 function displayVictoryMess(moves) {
   var movesMessage;
   // Check if the current difficulty is extreme (value "38")
-  if (difficulty === "38") {
+  if (difficulty === "10") {
     movesMessage = "Amazing! You've conquered Extreme Difficulty in " + moves + " moves!<br>" +
                    "<a href='https://uncleolliespenthouse.netlify.app/games/shuffle.html'>Click here</a> to claim your prize";
   } else {
