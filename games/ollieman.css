@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
 html,
 body {
   margin: 0px;
@@ -5,13 +7,41 @@ body {
   width: 100%;
   overflow: hidden;
   background-color: black;
+  height: 100vh;
+	margin: 0 auto;
+  font-size: 64.5%;
+	font-size: 1.4em;
+	font-family: 'VT323', Courier;
 }
 
 .container {
-  width: 100%;
+  width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.backButton {
+  margin-bottom: 40px;
+}
+
+ul {
+	list-style: none;
+  display: inline;
+}
+
+ul a {
+  transition: all 200ms;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+ul a:before,
+p a:before {
+	color: #FEBF00;
+  content: ' <-- ';
 }
 
 .social-links {
