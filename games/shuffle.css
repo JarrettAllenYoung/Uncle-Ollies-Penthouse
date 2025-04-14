@@ -106,6 +106,7 @@ body{
   font-size:6vw;
   text-shadow: 2px 2px 2px #fff;
   font-weight: 700;
+  text-align: center;
 
   &.shown{
     transform:translateY(0);
