@@ -224,28 +224,36 @@
       }
 
       class Results extends React.Component {
-        constructor() {
+        constructor(){
           super();
+          // 1) Include date/time in the second message, with an HTML <br>
           this.state = {
             messages: [
               '3UP',
-              'FREE BEER',
+              'FREE BEER<br>' + new Date().toLocaleString(), // add line break & date/time
               '2UP',
               '1UP'
             ]
           };
         }
 
-        render() {
+        render(){
+          // Shown or hidden class
           var shown = this.props.shown ? 'shown' : '';
           var classList = 'results ' + shown;
+
+          // 2) Use dangerouslySetInnerHTML to render the HTML (so <br> is interpreted)
           return (
             <div className={classList}>
-              {this.state.messages[this.props.prize]}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: this.state.messages[this.props.prize]
+                }}
+              />
             </div>
           );
         }
-      }
+        }
 
       // Render the app
       ReactDOM.render(
