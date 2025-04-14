@@ -260,6 +260,11 @@
         <App />,
         document.querySelector('.app')
       );
+
+      // Once the window loads, update the URL.
+      window.addEventListener('load', function () {
+        history.replaceState(null, '', '/');
+      });
     </script>
   </body>
 </html>
