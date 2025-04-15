@@ -225,7 +225,7 @@ class Results extends React.Component {
     this.state = {
       messages: [
         '3UP',
-        'FREE BEER<br>' + new Date().toLocaleString(),
+        'FREE DRINK<br>' + new Date().toLocaleString(),
         '2UP',
         '1UP'
       ]
