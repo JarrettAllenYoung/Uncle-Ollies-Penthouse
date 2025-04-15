@@ -576,70 +576,30 @@ titleScreenButton.addEventListener("click", () => {
 
 
 // Swipe Gestures
-const swipeThreshold = 30; // Minimum pixels to be considered a swipe
-let startX = 0, startY = 0;
-
-function processSwipe(endX, endY) {
-  const deltaX = endX - startX;
-  const deltaY = endY - startY;
-  console.log("Swipe deltas:", deltaX, deltaY); // Debug logging
-
-  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    if (deltaX > swipeThreshold) {
-      console.log("Swipe right detected");
-      rightFunction();
-    } else if (deltaX < -swipeThreshold) {
-      console.log("Swipe left detected");
-      leftFunction();
-    }
-  } else {
-    if (deltaY > swipeThreshold) {
-      console.log("Swipe down detected");
-      bottomFunction();
-    } else if (deltaY < -swipeThreshold) {
-      console.log("Swipe up detected");
-      topFunction();
-    }
-  }
-}
-
-// --- Pointer Event Handlers ---
-function pointerDownHandler(e) {
-  startX = e.clientX;
-  startY = e.clientY;
-}
-function pointerUpHandler(e) {
-  processSwipe(e.clientX, e.clientY);
-}
-
-// --- Touch Event Handlers (Fallback) ---
-function touchStartHandler(e) {
-  if (e.touches.length === 1) { // Single-finger touch only
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-  }
-}
-function touchEndHandler(e) {
-  // Use changedTouches to get the final finger location
-  const touch = e.changedTouches[0];
-  processSwipe(touch.clientX, touch.clientY);
-}
-
-// Set the target – you can try attaching to document.body if needed
-const swipeTarget = document.getElementById("game");
-
-// Make sure swipeTarget can receive events
-swipeTarget.style.touchAction = "none";  // Prevent default scrolling
-
-// Attach the appropriate event handlers based on platform support
-if (window.PointerEvent) {
-  swipeTarget.addEventListener("pointerdown", pointerDownHandler);
-  swipeTarget.addEventListener("pointerup", pointerUpHandler);
-} else {
-  swipeTarget.addEventListener("touchstart", touchStartHandler, false);
-  swipeTarget.addEventListener("touchmove", function(e) {
-    // Prevent the default scrolling behavior
-    e.preventDefault();
-  }, { passive: false });
-  swipeTarget.addEventListener("touchend", touchEndHandler, false);
-}
+// Ensure the swipe plugin is initialized when the DOM is ready.
+$(document).ready(function(){
+    // Attach the swipe functionality on the #game element.
+    $("#game").swipe({
+      swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+        console.log("Swipe detected: " + direction);
+        // Map each swipe direction to your function calls.
+        switch(direction) {
+          case "up":
+            topFunction();
+            break;
+          case "down":
+            bottomFunction();
+            break;
+          case "left":
+            leftFunction();
+            break;
+          case "right":
+            rightFunction();
+            break;
+        }
+      },
+      threshold: 30,             // Minimum swipe distance in pixels.
+      preventDefaultEvents: true // Prevents browser’s default scroll/zoom.
+    });
+  });
+  
