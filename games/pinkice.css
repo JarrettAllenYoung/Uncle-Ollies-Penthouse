@@ -205,19 +205,20 @@ body {
 .game--tutorial:before {
   position: absolute;
   bottom: -4rem;
-  content: "*Swipe to move (mobile)\Aor *Use arrow keys (recommended) or click the arrows to play (desktop)";
-  white-space: pre-line; /* Enables the \A to render as a line break */
+  content: "*Swipe to move";
   color: #fff;
   font-size: 1.2rem;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
 }
+/*
 @media (max-width: 767px) {
   .game--tutorial:before {
     display: none;
   }
 }
+*/
 
 .game--win:after,
 .game--lose:after,
