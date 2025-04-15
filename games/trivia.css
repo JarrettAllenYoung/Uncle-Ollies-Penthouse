@@ -15,7 +15,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
 #quiz {
   width: 100%;
   overflow-x: hidden;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Open Sans';
   letter-spacing: .015em;
 }
 #quiz .container-fluid {
