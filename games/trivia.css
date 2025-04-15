@@ -80,6 +80,19 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
 .quiz-ans-btn.incorrect {
   background-color: #e60000;
 }
+
+.quiz-ending-message {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 16px;
+  text-align: center;
+  /* Additional styles as desired */
+}
+.quiz-ending-message a {
+  font-size: 24px;
+  color: red;
+}
+
 #quiz-play-again {
   overflow-y: hidden;
   display: none;
