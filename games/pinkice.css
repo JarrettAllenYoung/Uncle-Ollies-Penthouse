@@ -21,6 +21,7 @@ body {
   font-family: "Archivo Black", sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
+  touch-action: none;
 }
 
 .level {
