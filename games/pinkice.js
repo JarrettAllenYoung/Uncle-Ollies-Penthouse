@@ -576,73 +576,70 @@ titleScreenButton.addEventListener("click", () => {
 
 
 // Swipe Gestures
-// Define a swipe threshold
-const swipeThreshold = 30; // Minimum movement in pixels to count as a swipe
+const swipeThreshold = 30; // Minimum pixels to be considered a swipe
+let startX = 0, startY = 0;
 
-// Variables to track start coordinates.
-let startX = 0;
-let startY = 0;
-
-// Handler functions – these will be called on swipe end.
 function processSwipe(endX, endY) {
   const deltaX = endX - startX;
   const deltaY = endY - startY;
-  
+  console.log("Swipe deltas:", deltaX, deltaY); // Debug logging
+
   if (Math.abs(deltaX) > Math.abs(deltaY)) {
     if (deltaX > swipeThreshold) {
-      // Detected a swipe right
+      console.log("Swipe right detected");
       rightFunction();
     } else if (deltaX < -swipeThreshold) {
-      // Detected a swipe left
+      console.log("Swipe left detected");
       leftFunction();
     }
   } else {
     if (deltaY > swipeThreshold) {
-      // Detected a swipe down
+      console.log("Swipe down detected");
       bottomFunction();
     } else if (deltaY < -swipeThreshold) {
-      // Detected a swipe up
+      console.log("Swipe up detected");
       topFunction();
     }
   }
 }
 
-// --- Pointer Events Handlers ---
+// --- Pointer Event Handlers ---
 function pointerDownHandler(e) {
   startX = e.clientX;
   startY = e.clientY;
 }
-
 function pointerUpHandler(e) {
   processSwipe(e.clientX, e.clientY);
 }
 
-// --- Touch Events Handlers (Fallback) ---
+// --- Touch Event Handlers (Fallback) ---
 function touchStartHandler(e) {
-  if (e.touches.length === 1) { // Single-finger touch
+  if (e.touches.length === 1) { // Single-finger touch only
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
   }
 }
-
 function touchEndHandler(e) {
-  // Use changedTouches to get the final touch info
+  // Use changedTouches to get the final finger location
   const touch = e.changedTouches[0];
   processSwipe(touch.clientX, touch.clientY);
 }
 
-// --- Attach the Appropriate Handlers ---
+// Set the target – you can try attaching to document.body if needed
+const swipeTarget = document.getElementById("game");
+
+// Make sure swipeTarget can receive events
+swipeTarget.style.touchAction = "none";  // Prevent default scrolling
+
+// Attach the appropriate event handlers based on platform support
 if (window.PointerEvent) {
-  // Ensure #game doesn’t block pointer events
-  game.style.touchAction = "none";
-  game.addEventListener("pointerdown", pointerDownHandler);
-  game.addEventListener("pointerup", pointerUpHandler);
+  swipeTarget.addEventListener("pointerdown", pointerDownHandler);
+  swipeTarget.addEventListener("pointerup", pointerUpHandler);
 } else {
-  // Fallback to touch events
-  game.addEventListener("touchstart", touchStartHandler, false);
-  game.addEventListener("touchend", touchEndHandler, false);
-  // Prevent touchmove defaults so that scrolling doesn’t interfere
-  game.addEventListener("touchmove", function(e) {
+  swipeTarget.addEventListener("touchstart", touchStartHandler, false);
+  swipeTarget.addEventListener("touchmove", function(e) {
+    // Prevent the default scrolling behavior
     e.preventDefault();
   }, { passive: false });
+  swipeTarget.addEventListener("touchend", touchEndHandler, false);
 }
