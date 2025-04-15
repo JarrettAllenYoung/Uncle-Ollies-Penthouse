@@ -334,6 +334,10 @@ a.button:hover {
 
 .upper { text-transform: uppercase; }
 
+.contact-info {
+	display: none;
+}
+
 
 @media screen and (max-width: 1024px) {
   .col {
