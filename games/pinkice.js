@@ -578,11 +578,10 @@ titleScreenButton.addEventListener("click", () => {
 // Swipe Gestures
 // Ensure the swipe plugin is initialized when the DOM is ready.
 $(document).ready(function(){
-    // Attach the swipe functionality on the #game element.
-    $("#game").swipe({
+    // Bind swipe to both #game and #controls so swipes are detected regardless of which element is touched.
+    $("#game, #controls").swipe({
       swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
         console.log("Swipe detected: " + direction);
-        // Map each swipe direction to your function calls.
         switch(direction) {
           case "up":
             topFunction();
@@ -598,8 +597,9 @@ $(document).ready(function(){
             break;
         }
       },
-      threshold: 30,             // Minimum swipe distance in pixels.
-      preventDefaultEvents: true // Prevents browser’s default scroll/zoom.
+      threshold: 30,             // minimum swipe distance in pixels
+      preventDefaultEvents: true // disable native scrolling/zooming
     });
   });
+  
   
