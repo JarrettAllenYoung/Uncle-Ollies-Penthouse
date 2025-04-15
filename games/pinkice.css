@@ -24,6 +24,10 @@ body {
   touch-action: none;
 }
 
+#game {
+    touch-action: none;
+}
+
 .level {
   position: absolute;
   top: 0.75rem;

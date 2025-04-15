@@ -574,52 +574,39 @@ titleScreenButton.addEventListener("click", () => {
   document.getElementById("title-screen").classList.add("title-screen--hidden");
 });
 
-// Variables to track the initial touch positions
-let touchStartX = 0;
-let touchStartY = 0;
-const swipeThreshold = 30; // Minimum distance (in pixels) to consider it a swipe
 
-// Attach listeners to the game container
-game.addEventListener("touchstart", (e) => {
-  // For a single-finger touch
-  if (e.touches.length === 1) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }
-}, false);
+// Swipe Gestures
+const swipeThreshold = 30; // Minimum movement in pixels to count as a swipe
 
-game.addEventListener("touchmove", (e) => {
-  // Prevent the default scrolling behavior
-  e.preventDefault();
-}, { passive: false });
+// Apply the touch-action style via JavaScript as well (in case your CSS isn’t loaded yet)
+game.style.touchAction = "none";
 
-game.addEventListener("touchend", (e) => {
-  // Get the coordinates where the touch ended
-  let touchEndX = e.changedTouches[0].clientX;
-  let touchEndY = e.changedTouches[0].clientY;
+let pointerStartX = 0;
+let pointerStartY = 0;
+
+game.addEventListener("pointerdown", (e) => {
+  pointerStartX = e.clientX;
+  pointerStartY = e.clientY;
+});
+
+game.addEventListener("pointerup", (e) => {
+  const pointerEndX = e.clientX;
+  const pointerEndY = e.clientY;
+  const deltaX = pointerEndX - pointerStartX;
+  const deltaY = pointerEndY - pointerStartY;
   
-  // Calculate the change in X and Y
-  const deltaX = touchEndX - touchStartX;
-  const deltaY = touchEndY - touchStartY;
-  
-  // Determine whether the swipe was horizontal or vertical
+  // Check which axis had the greater movement and fire the appropriate function
   if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    // Horizontal swipe
     if (deltaX > swipeThreshold) {
-      // Swipe right
       rightFunction();
     } else if (deltaX < -swipeThreshold) {
-      // Swipe left
       leftFunction();
     }
   } else {
-    // Vertical swipe
     if (deltaY > swipeThreshold) {
-      // Swipe down
       bottomFunction();
     } else if (deltaY < -swipeThreshold) {
-      // Swipe up
       topFunction();
     }
   }
-}, false);
+});
