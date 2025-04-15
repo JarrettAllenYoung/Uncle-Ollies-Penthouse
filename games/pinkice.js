@@ -562,6 +562,7 @@ refresh.addEventListener("click", () => {
   positionPlayer();
 });
 
+/*
 fullscreen.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
@@ -569,6 +570,11 @@ fullscreen.addEventListener("click", () => {
     document.exitFullscreen();
   }
 });
+*/
+
+fullscreen.addEventListener("click", () => {
+    location.reload();
+  });  
 
 titleScreenButton.addEventListener("click", () => {
   document.getElementById("title-screen").classList.add("title-screen--hidden");
