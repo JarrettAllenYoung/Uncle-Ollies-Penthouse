@@ -254,6 +254,7 @@ body {
   transition-property: top, left;
   transition-duration: 0.2s;
   transition-timing-function: ease;
+  pointer-events: none;
 }
 @media (max-width: 767px) {
   .game__player {

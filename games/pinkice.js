@@ -576,37 +576,73 @@ titleScreenButton.addEventListener("click", () => {
 
 
 // Swipe Gestures
+// Define a swipe threshold
 const swipeThreshold = 30; // Minimum movement in pixels to count as a swipe
 
-// Apply the touch-action style via JavaScript as well (in case your CSS isn’t loaded yet)
-game.style.touchAction = "none";
+// Variables to track start coordinates.
+let startX = 0;
+let startY = 0;
 
-let pointerStartX = 0;
-let pointerStartY = 0;
-
-game.addEventListener("pointerdown", (e) => {
-  pointerStartX = e.clientX;
-  pointerStartY = e.clientY;
-});
-
-game.addEventListener("pointerup", (e) => {
-  const pointerEndX = e.clientX;
-  const pointerEndY = e.clientY;
-  const deltaX = pointerEndX - pointerStartX;
-  const deltaY = pointerEndY - pointerStartY;
+// Handler functions – these will be called on swipe end.
+function processSwipe(endX, endY) {
+  const deltaX = endX - startX;
+  const deltaY = endY - startY;
   
-  // Check which axis had the greater movement and fire the appropriate function
   if (Math.abs(deltaX) > Math.abs(deltaY)) {
     if (deltaX > swipeThreshold) {
+      // Detected a swipe right
       rightFunction();
     } else if (deltaX < -swipeThreshold) {
+      // Detected a swipe left
       leftFunction();
     }
   } else {
     if (deltaY > swipeThreshold) {
+      // Detected a swipe down
       bottomFunction();
     } else if (deltaY < -swipeThreshold) {
+      // Detected a swipe up
       topFunction();
     }
   }
-});
+}
+
+// --- Pointer Events Handlers ---
+function pointerDownHandler(e) {
+  startX = e.clientX;
+  startY = e.clientY;
+}
+
+function pointerUpHandler(e) {
+  processSwipe(e.clientX, e.clientY);
+}
+
+// --- Touch Events Handlers (Fallback) ---
+function touchStartHandler(e) {
+  if (e.touches.length === 1) { // Single-finger touch
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }
+}
+
+function touchEndHandler(e) {
+  // Use changedTouches to get the final touch info
+  const touch = e.changedTouches[0];
+  processSwipe(touch.clientX, touch.clientY);
+}
+
+// --- Attach the Appropriate Handlers ---
+if (window.PointerEvent) {
+  // Ensure #game doesn’t block pointer events
+  game.style.touchAction = "none";
+  game.addEventListener("pointerdown", pointerDownHandler);
+  game.addEventListener("pointerup", pointerUpHandler);
+} else {
+  // Fallback to touch events
+  game.addEventListener("touchstart", touchStartHandler, false);
+  game.addEventListener("touchend", touchEndHandler, false);
+  // Prevent touchmove defaults so that scrolling doesn’t interfere
+  game.addEventListener("touchmove", function(e) {
+    e.preventDefault();
+  }, { passive: false });
+}
