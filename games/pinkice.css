@@ -26,6 +26,7 @@ body {
 
 #game {
     touch-action: none;
+    justify-content: center;
 }
 
 .level {
@@ -206,6 +207,7 @@ body {
   position: absolute;
   bottom: -4rem;
   content: "*Swipe to move";
+  justify-content: center;
   color: #fff;
   font-size: 1.2rem;
   font-weight: 500;
